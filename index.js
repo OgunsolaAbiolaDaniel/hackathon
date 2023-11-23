@@ -1,13 +1,13 @@
-var searchbar = document.querySelector("#search");
+const searchbar = document.querySelector("#search");
 searchbar.addEventListener("click",()=>{
     searchbar.style.borderWidth = "2px";
     searchbar.style.borderColor = "#f0f0f0"
 });
-var notifications = document.querySelector("#notification");
-var disPlan= document.querySelector(".a-sector");
+const notifications = document.querySelector("#notification");
+const disPlan= document.querySelector(".a-sector");
 notifications.addEventListener("click",()=>{
    notifications.style.backgroundColor = "#616161"
-   var disPlan= document.querySelector(".a-sector")
+   const disPlan= document.querySelector(".a-sector")
    if(disPlan.style.display ==="none"){
     disPlan.style.display ="block";
     disPlan.style.visibility="visible";
@@ -17,8 +17,8 @@ if(perpend.style.display==="block"){
 }
 else{err}
 })
-var menu = document.querySelector(".full");
-var perpend= document.querySelector(".b-sector")
+const menu = document.querySelector(".full");
+const perpend= document.querySelector(".b-sector")
 menu.addEventListener("click",()=>{
    if(perpend.style.display ==="none"){
     perpend.style.display ="block";
@@ -30,14 +30,14 @@ if(disPlan.style.display==="block"){
 else{err}
 })
 
-var dismiss = document.querySelector(".cancel-btn");
+const dismiss = document.querySelector(".cancel-btn");
 dismiss.addEventListener("click",()=>{
-    var alertMessage = document.querySelector(".alert");
+    const alertMessage = document.querySelector(".alert");
     alertMessage.style.display = "none";
 })
-var setup = document.querySelector(".dropdown");
+const setup = document.querySelector(".dropdown");
 setup.addEventListener("click",()=>{
-    var drop= document.querySelector(".minimize");
+    const drop= document.querySelector(".minimize");
     if( drop.style.display === "none"){
         drop.style.display = "block";
         drop.style.visibility="visible";
@@ -50,8 +50,8 @@ setup.addEventListener("click",()=>{
 
     }
 })
-var contents = document.querySelector(".sub-noteA");
-var suspend = document.querySelector(".words")
+const contents = document.querySelector(".sub-noteA");
+const suspend = document.querySelector(".words")
 contents.addEventListener("click",()=>{
    if(suspend.style.display ==="none"){
    suspend.style.display ="block";
@@ -65,8 +65,8 @@ if( suspendE.style.display==="block"||suspendB.style.display==="block"|| suspend
   }
   else{err}
 })
-var contentB = document.querySelector(".sub-noteB");
-var suspendB = document.querySelector(".wordsB")
+const contentB = document.querySelector(".sub-noteB");
+const suspendB = document.querySelector(".wordsB")
 contentB.addEventListener("click", ()=>{
     if(suspendB.style.display ==="none"){
         suspendB.style.display ="block";
@@ -80,8 +80,8 @@ contentB.addEventListener("click", ()=>{
       }
       else{err}
 })
-var contentC = document.querySelector(".sub-noteC");
-var suspendC = document.querySelector(".wordsC")
+const contentC = document.querySelector(".sub-noteC");
+const suspendC = document.querySelector(".wordsC")
 contentC.addEventListener("click", ()=>{
     if(suspendC.style.display ==="none"){
         suspendC.style.display ="block";
@@ -95,8 +95,8 @@ contentC.addEventListener("click", ()=>{
       }
       else{err}
 })
-var contentD = document.querySelector(".sub-noteD");
-var suspendD = document.querySelector(".wordsD")
+const contentD = document.querySelector(".sub-noteD");
+const suspendD = document.querySelector(".wordsD")
 contentD.addEventListener("click", ()=>{
     if(suspendD.style.display ==="none"){
         suspendD.style.display ="block";
@@ -110,8 +110,8 @@ contentD.addEventListener("click", ()=>{
       }
       else{err}
 })
-var contentE = document.querySelector(".sub-noteE");
-var suspendE = document.querySelector(".wordsE")
+const contentE = document.querySelector(".sub-noteE");
+const suspendE = document.querySelector(".wordsE")
 contentE.addEventListener("click", ()=>{
     if(suspendE.style.display ==="none"){
         suspendE.style.display ="block";
@@ -126,9 +126,9 @@ contentE.addEventListener("click", ()=>{
      else{err}
 })
 
-var checkBox = document.querySelector(".empty");
-    var loadingAnimate = document.querySelector(".mins");
-    var loaded = document.querySelector(".after")
+const checkBox = document.querySelector(".empty");
+    const loadingAnimate = document.querySelector(".mins");
+    const loaded = document.querySelector(".after")
     checkBox.addEventListener("click",()=>{
         if(loadingAnimate.style.display==="none"){ 
             checkBox.style.display="none";
