@@ -1,0 +1,144 @@
+var searchbar = document.querySelector("#search");
+searchbar.addEventListener("click",()=>{
+    searchbar.style.borderWidth = "2px";
+    searchbar.style.borderColor = "#f0f0f0"
+});
+var notifications = document.querySelector("#notification");
+var disPlan= document.querySelector(".a-sector");
+notifications.addEventListener("click",()=>{
+   notifications.style.backgroundColor = "#616161"
+   var disPlan= document.querySelector(".a-sector")
+   if(disPlan.style.display ==="none"){
+    disPlan.style.display ="block";
+    disPlan.style.visibility="visible";
+}else{disPlan.style.display="none"}
+if(perpend.style.display==="block"){
+    perpend.style.display= "none";
+}
+else{err}
+})
+var menu = document.querySelector(".full");
+var perpend= document.querySelector(".b-sector")
+menu.addEventListener("click",()=>{
+   if(perpend.style.display ==="none"){
+    perpend.style.display ="block";
+    perpend.style.visibility="visible";
+}else{perpend.style.display="none"}
+if(disPlan.style.display==="block"){
+    disPlan.style.display= "none";
+}
+else{err}
+})
+
+var dismiss = document.querySelector(".cancel-btn");
+dismiss.addEventListener("click",()=>{
+    var alertMessage = document.querySelector(".alert");
+    alertMessage.style.display = "none";
+})
+var setup = document.querySelector(".dropdown");
+setup.addEventListener("click",()=>{
+    var drop= document.querySelector(".minimize");
+    if( drop.style.display === "none"){
+        drop.style.display = "block";
+        drop.style.visibility="visible";
+        setup.innerHTML=`<svg width="20" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg"> <path fill-rule="evenodd" clip-rule="evenodd" d="M15.0303 12.2803C14.7374 12.5732 14.2626 12.5732 13.9697 12.2803L10.5 8.81066L7.03033 12.2803C6.73744 12.5732 6.26256 12.5732 5.96967 12.2803C5.67678 11.9874 5.67678 11.5126 5.96967 11.2197L9.96967 7.21967C10.2626 6.92678 10.7374 6.92678 11.0303 7.21967L15.0303 11.2197C15.3232 11.5126 15.3232 11.9874 15.0303 12.2803Z" fill="#000"/> </svg>`
+    }else{
+        drop.style.display = "none"
+        setup.innerHTML=`<svg width="20" height="30" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M6.21967 8.46967C6.51256 8.17678 6.98744 8.17678 7.28033 8.46967L10.75 11.9393L14.2197 8.46967C14.5126 8.17678 14.9874 8.17678 15.2803 8.46967C15.5732 8.76256 15.5732 9.23744 15.2803 9.53033L11.2803 13.5303C10.9874 13.8232 10.5126 13.8232 10.2197 13.5303L6.21967 9.53033C5.92678 9.23744 5.92678 8.76256 6.21967 8.46967Z" fill="#000"/>
+        </svg>`
+
+    }
+})
+var contents = document.querySelector(".sub-noteA");
+var suspend = document.querySelector(".words")
+contents.addEventListener("click",()=>{
+   if(suspend.style.display ==="none"){
+   suspend.style.display ="block";
+   suspend.style.visibility="visible";
+}else{suspend.style.display="none"}
+if( suspendE.style.display==="block"||suspendB.style.display==="block"|| suspendC.style.display==="block" || suspendD.style.display==="block"){
+    suspendE.style.display="none";
+    suspendB.style.display="none";
+    suspendC.style.display="none";
+    suspendD.style.display="none";
+  }
+  else{err}
+})
+var contentB = document.querySelector(".sub-noteB");
+var suspendB = document.querySelector(".wordsB")
+contentB.addEventListener("click", ()=>{
+    if(suspendB.style.display ==="none"){
+        suspendB.style.display ="block";
+        suspendB.style.visibility="visible";
+     }else{suspendB.style.display="none"}
+     if( suspend.style.display==="block"||suspendE.style.display==="block"|| suspendC.style.display==="block" || suspendD.style.display==="block"){
+        suspend.style.display="none";
+        suspendE.style.display="none";
+        suspendC.style.display="none";
+        suspendD.style.display="none";
+      }
+      else{err}
+})
+var contentC = document.querySelector(".sub-noteC");
+var suspendC = document.querySelector(".wordsC")
+contentC.addEventListener("click", ()=>{
+    if(suspendC.style.display ==="none"){
+        suspendC.style.display ="block";
+        suspendC.style.visibility="visible";
+     }else{suspendC.style.display="none"}
+     if( suspend.style.display==="block"||suspendB.style.display==="block"|| suspendE.style.display==="block" || suspendD.style.display==="block"){
+        suspend.style.display="none";
+        suspendB.style.display="none";
+        suspendE.style.display="none";
+        suspendD.style.display="none";
+      }
+      else{err}
+})
+var contentD = document.querySelector(".sub-noteD");
+var suspendD = document.querySelector(".wordsD")
+contentD.addEventListener("click", ()=>{
+    if(suspendD.style.display ==="none"){
+        suspendD.style.display ="block";
+        suspendD.style.visibility="visible";
+     }else{suspendD.style.display="none"}
+     if( suspend.style.display==="block"||suspendB.style.display==="block"|| suspendC.style.display==="block" || suspendE.style.display==="block"){
+        suspend.style.display="none";
+        suspendB.style.display="none";
+        suspendC.style.display="none";
+        suspendE.style.display="none";
+      }
+      else{err}
+})
+var contentE = document.querySelector(".sub-noteE");
+var suspendE = document.querySelector(".wordsE")
+contentE.addEventListener("click", ()=>{
+    if(suspendE.style.display ==="none"){
+        suspendE.style.display ="block";
+        suspendE.style.visibility="visible";
+     }else{suspendE.style.display="none"}
+     if( suspend.style.display==="block"||suspendB.style.display==="block"|| suspendC.style.display==="block" || suspendD.style.display==="block"){
+       suspend.style.display="none";
+       suspendB.style.display="none";
+       suspendC.style.display="none";
+       suspendD.style.display="none";
+     }
+     else{err}
+})
+
+var checkBox = document.querySelector(".empty");
+    var loadingAnimate = document.querySelector(".mins");
+    var loaded = document.querySelector(".after")
+    checkBox.addEventListener("click",()=>{
+        if(loadingAnimate.style.display==="none"){ 
+            checkBox.style.display="none";
+            loadingAnimate.style.display="block";      
+        }
+        else{err}
+    })
+
+let checkBoxState = false;
+const checkBoxButton = document.querySelector('.select-box');
+checkBoxButton.addEventListener('click', (e) => {
+    console.log(e);
+})
