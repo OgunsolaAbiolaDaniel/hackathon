@@ -128,8 +128,8 @@ position: relative;
     height: 20px;
 }
 .part-1:hover{
-border-radius: 5px;
-width:100%;
+    border-radius: 5px;
+    width:100%;
 }
 .active  #admin-profile{
 width: fit-content;
@@ -403,7 +403,7 @@ border-radius: 10px;
 
 @keyframes spin {
     100% {
-      transform: rotate(360deg);
+     transform: rotate(360deg);
     }
 }
 .loader{
@@ -412,15 +412,23 @@ border-radius: 10px;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
 }
+
+@keyframes scaleAnimation {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.5);
+      }
+    }
 .loading{
     display: none;
     position: relative;
-    top: -23px;
 }
 .loaded{
     display: none;
-position: relative;
-top: -46px;
+    position: relative;
+    /* animation: scaleAnimation; */
 }
 .empty{
     background: none;

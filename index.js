@@ -9,25 +9,25 @@ notifications.addEventListener("click",()=>{
    notifications.style.backgroundColor = "#616161"
    const disPlan= document.querySelector(".a-sector")
    if(disPlan.style.display ==="none"){
-    disPlan.style.display ="block";
-    disPlan.style.visibility="visible";
-}else{disPlan.style.display="none"}
-if(perpend.style.display==="block"){
-    perpend.style.display= "none";
-}
-else{err}
+        disPlan.style.display ="block";
+        disPlan.style.visibility="visible";
+    }else{disPlan.style.display="none"}
+    if(perpend.style.display==="block"){
+        perpend.style.display= "none";
+    }
+    else{}
 })
 const menu = document.querySelector(".full");
 const perpend= document.querySelector(".b-sector")
 menu.addEventListener("click",()=>{
    if(perpend.style.display ==="none"){
-    perpend.style.display ="block";
-    perpend.style.visibility="visible";
-}else{perpend.style.display="none"}
-if(disPlan.style.display==="block"){
-    disPlan.style.display= "none";
-}
-else{err}
+        perpend.style.display ="block";
+        perpend.style.visibility="visible";
+    }else{perpend.style.display="none"}
+    if(disPlan.style.display==="block"){
+        disPlan.style.display= "none";
+    }
+    else{}
 })
 
 const dismiss = document.querySelector(".cancel-btn");
@@ -47,23 +47,22 @@ setup.addEventListener("click",()=>{
         setup.innerHTML=`<svg width="20" height="30" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path fill-rule="evenodd" clip-rule="evenodd" d="M6.21967 8.46967C6.51256 8.17678 6.98744 8.17678 7.28033 8.46967L10.75 11.9393L14.2197 8.46967C14.5126 8.17678 14.9874 8.17678 15.2803 8.46967C15.5732 8.76256 15.5732 9.23744 15.2803 9.53033L11.2803 13.5303C10.9874 13.8232 10.5126 13.8232 10.2197 13.5303L6.21967 9.53033C5.92678 9.23744 5.92678 8.76256 6.21967 8.46967Z" fill="#000"/>
         </svg>`
-
     }
 })
 const contents = document.querySelector(".sub-noteA");
 const suspend = document.querySelector(".words")
 contents.addEventListener("click",()=>{
    if(suspend.style.display ==="none"){
-   suspend.style.display ="block";
-   suspend.style.visibility="visible";
-}else{suspend.style.display="none"}
-if( suspendE.style.display==="block"||suspendB.style.display==="block"|| suspendC.style.display==="block" || suspendD.style.display==="block"){
-    suspendE.style.display="none";
-    suspendB.style.display="none";
-    suspendC.style.display="none";
-    suspendD.style.display="none";
-  }
-  else{err}
+        suspend.style.display ="block";
+        suspend.style.visibility="visible";
+    }else{suspend.style.display="none"}
+    if( suspendE.style.display==="block"||suspendB.style.display==="block"|| suspendC.style.display==="block" || suspendD.style.display==="block"){
+        suspendE.style.display="none";
+        suspendB.style.display="none";
+        suspendC.style.display="none";
+        suspendD.style.display="none";
+    }
+    else{}
 })
 const contentB = document.querySelector(".sub-noteB");
 const suspendB = document.querySelector(".wordsB")
@@ -78,7 +77,7 @@ contentB.addEventListener("click", ()=>{
         suspendC.style.display="none";
         suspendD.style.display="none";
       }
-      else{err}
+      else{}
 })
 const contentC = document.querySelector(".sub-noteC");
 const suspendC = document.querySelector(".wordsC")
@@ -93,7 +92,7 @@ contentC.addEventListener("click", ()=>{
         suspendE.style.display="none";
         suspendD.style.display="none";
       }
-      else{err}
+      else{}
 })
 const contentD = document.querySelector(".sub-noteD");
 const suspendD = document.querySelector(".wordsD")
@@ -108,7 +107,7 @@ contentD.addEventListener("click", ()=>{
         suspendC.style.display="none";
         suspendE.style.display="none";
       }
-      else{err}
+      else{}
 })
 const contentE = document.querySelector(".sub-noteE");
 const suspendE = document.querySelector(".wordsE")
@@ -123,7 +122,7 @@ contentE.addEventListener("click", ()=>{
        suspendC.style.display="none";
        suspendD.style.display="none";
      }
-     else{err}
+     else{}
 })
 
 const checkBox = document.querySelector(".empty");
@@ -134,11 +133,42 @@ const checkBox = document.querySelector(".empty");
             checkBox.style.display="none";
             loadingAnimate.style.display="block";      
         }
-        else{err}
+        else{}
     })
 
 let checkBoxState = false;
-const checkBoxButton = document.querySelector('.select-box');
-checkBoxButton.addEventListener('click', (e) => {
-    console.log(e);
-})
+const selectBoxes = document.querySelectorAll('.select-box');
+console.log(selectBoxes);
+for (const oneOfTheBoxes of selectBoxes) {
+    oneOfTheBoxes.addEventListener('click', (e) => {
+        const emptyCheck = oneOfTheBoxes.querySelector('.empty');
+        const loading = oneOfTheBoxes.querySelector('.loading');
+        const loaded = oneOfTheBoxes.querySelector('.loaded');
+
+        if (oneOfTheBoxes.classList.contains('select-box-active')) {
+            emptyCheck.style.display = 'block';
+            loading.style.display = 'none';
+            loaded.style.display = 'none';
+            oneOfTheBoxes.classList.remove('select-box-active');
+        } else {
+            emptyCheck.style.display = 'none';
+            loading.style.display = 'block';
+            setTimeout(() => { 
+                loading.style.display = 'none';
+                loaded.style.display = 'block';
+                loaded.animate(
+                    [
+                        { transform: "scale(1.5)" },
+                        {  transform: "scale(1)" },
+                    ],
+                    {
+                        duration: 100,
+                        iterations: 1,
+                    }
+                )
+            }, 200);
+            oneOfTheBoxes.classList.add('select-box-active');
+        }
+    
+    })
+}
