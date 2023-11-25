@@ -324,10 +324,11 @@ gap:5px;
 .bar{
 width: 60px;
 border-radius: 10px;
+height: 2px;
 background-color: #f1f1f1;
 }
 .percentage{
-width: 20%;
+width: 0%;
 height: 2px;
 background-color: #322f33;
 }

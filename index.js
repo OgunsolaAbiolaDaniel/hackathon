@@ -136,30 +136,39 @@ const checkBox = document.querySelector(".empty");
         else{}
     })
 
-let checkBoxState = false;
 const selectBoxes = document.querySelectorAll('.select-box');
-console.log(selectBoxes);
-for (const oneOfTheBoxes of selectBoxes) {
-    oneOfTheBoxes.addEventListener('click', (e) => {
-        const emptyCheck = oneOfTheBoxes.querySelector('.empty');
-        const loading = oneOfTheBoxes.querySelector('.loading');
-        const loaded = oneOfTheBoxes.querySelector('.loaded');
+const progressCount = document.querySelector('#progress-count');
+const percentageDiv = document.querySelector('.percentage');
+const totalLengthOfMyCheckBoxes = selectBoxes.length;
 
-        if (oneOfTheBoxes.classList.contains('select-box-active')) {
+function updateProgressBarAndCount(index) {
+    // since array start from 0 instead of 1
+    const realPositionOfBox = index + 1;
+    progressCount.innerHTML = realPositionOfBox;
+
+}
+
+function helpMeAddEventToTheCheckBoxes(thebox, boxIndex) {
+    thebox.addEventListener('click', (e) => {
+        const emptyCheck = thebox.querySelector('.empty');
+        const loading = thebox.querySelector('.loading');
+        const loaded = thebox.querySelector('.loaded');
+
+        if (thebox.classList.contains('select-box-active')) {
             emptyCheck.style.display = 'block';
             loading.style.display = 'none';
             loaded.style.display = 'none';
-            oneOfTheBoxes.classList.remove('select-box-active');
+            thebox.classList.remove('select-box-active');
         } else {
             emptyCheck.style.display = 'none';
             loading.style.display = 'block';
-            setTimeout(() => { 
+            setTimeout(() => {
                 loading.style.display = 'none';
                 loaded.style.display = 'block';
                 loaded.animate(
                     [
                         { transform: "scale(1.5)" },
-                        {  transform: "scale(1)" },
+                        { transform: "scale(1)" },
                     ],
                     {
                         duration: 50,
@@ -167,16 +176,23 @@ for (const oneOfTheBoxes of selectBoxes) {
                     }
                 )
             }, 150);
-            oneOfTheBoxes.classList.add('select-box-active');
+            thebox.classList.add('select-box-active');
         }
-    
-    })
-};
+
+        // do update
+        updateProgressBarAndCount(boxIndex)
+    });
+}
+
+for (let index = 0; index < totalLengthOfMyCheckBoxes; index++) {
+    const oneOfTheBoxes = selectBoxes[index];
+    helpMeAddEventToTheCheckBoxes(oneOfTheBoxes, index);
+}
 
 
-
+/* 
 var linkPages = document.querySelectorAll(".linkPages");
  linkPages.addEventListener("click",()=>{
     linkPages.style.backgroundColor = "#322f33";
     window.location= "https://admin.shopify.com/";
-})
+}) */
