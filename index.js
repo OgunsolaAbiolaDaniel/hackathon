@@ -41,7 +41,7 @@ setup.addEventListener("click",()=>{
     if( drop.style.display === "none"){
         drop.style.display = "block";
         drop.style.visibility="visible";
-        setup.innerHTML=`<svg width="20" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg"> <path fill-rule="evenodd" clip-rule="evenodd" d="M15.0303 12.2803C14.7374 12.5732 14.2626 12.5732 13.9697 12.2803L10.5 8.81066L7.03033 12.2803C6.73744 12.5732 6.26256 12.5732 5.96967 12.2803C5.67678 11.9874 5.67678 11.5126 5.96967 11.2197L9.96967 7.21967C10.2626 6.92678 10.7374 6.92678 11.0303 7.21967L15.0303 11.2197C15.3232 11.5126 15.3232 11.9874 15.0303 12.2803Z" fill="#000"/> </svg>`
+        setup.innerHTML=`<svg class="menu-up" width="20" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg"> <path fill-rule="evenodd" clip-rule="evenodd" d="M15.0303 12.2803C14.7374 12.5732 14.2626 12.5732 13.9697 12.2803L10.5 8.81066L7.03033 12.2803C6.73744 12.5732 6.26256 12.5732 5.96967 12.2803C5.67678 11.9874 5.67678 11.5126 5.96967 11.2197L9.96967 7.21967C10.2626 6.92678 10.7374 6.92678 11.0303 7.21967L15.0303 11.2197C15.3232 11.5126 15.3232 11.9874 15.0303 12.2803Z" fill="#000"/> </svg>`
     }else{
         drop.style.display = "none"
         setup.innerHTML=`<svg width="20" height="30" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -162,13 +162,21 @@ for (const oneOfTheBoxes of selectBoxes) {
                         {  transform: "scale(1)" },
                     ],
                     {
-                        duration: 100,
+                        duration: 50,
                         iterations: 1,
                     }
                 )
-            }, 200);
+            }, 150);
             oneOfTheBoxes.classList.add('select-box-active');
         }
     
     })
-}
+};
+
+
+
+var linkPages = document.querySelectorAll(".linkPages");
+ linkPages.addEventListener("click",()=>{
+    linkPages.style.backgroundColor = "#322f33";
+    window.location= "https://admin.shopify.com/";
+})
