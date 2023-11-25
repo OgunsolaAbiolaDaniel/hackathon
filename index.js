@@ -136,19 +136,19 @@ const checkBox = document.querySelector(".empty");
         else{}
     })
 
+let numberOfCheckedBox = 0;
 const selectBoxes = document.querySelectorAll('.select-box');
 const progressCount = document.querySelector('#progress-count');
 const percentageDiv = document.querySelector('.percentage');
-const totalLengthOfMyCheckBoxes = selectBoxes.length;
 
-function updateProgressBarAndCount(index) {
-    // since array start from 0 instead of 1
-    const realPositionOfBox = index + 1;
-    progressCount.innerHTML = realPositionOfBox;
+function updateProgressBarAndCount(numberOfCheckedBoxParams) {
+    progressCount.innerHTML = numberOfCheckedBoxParams;
+    const percentage = (numberOfCheckedBoxParams / selectBoxes.length) * 100;
+    percentageDiv.style.width = `${percentage}%`;
 
 }
 
-function helpMeAddEventToTheCheckBoxes(thebox, boxIndex) {
+function helpMeAddEventToTheCheckBoxes(thebox) {
     thebox.addEventListener('click', (e) => {
         const emptyCheck = thebox.querySelector('.empty');
         const loading = thebox.querySelector('.loading');
@@ -159,6 +159,7 @@ function helpMeAddEventToTheCheckBoxes(thebox, boxIndex) {
             loading.style.display = 'none';
             loaded.style.display = 'none';
             thebox.classList.remove('select-box-active');
+            numberOfCheckedBox = --numberOfCheckedBox;
         } else {
             emptyCheck.style.display = 'none';
             loading.style.display = 'block';
@@ -177,19 +178,21 @@ function helpMeAddEventToTheCheckBoxes(thebox, boxIndex) {
                 )
             }, 150);
             thebox.classList.add('select-box-active');
+            numberOfCheckedBox = ++numberOfCheckedBox;
         }
 
         // do update
-        updateProgressBarAndCount(boxIndex)
+        updateProgressBarAndCount(numberOfCheckedBox)
     });
 }
 
-for (let index = 0; index < totalLengthOfMyCheckBoxes; index++) {
-    const oneOfTheBoxes = selectBoxes[index];
-    helpMeAddEventToTheCheckBoxes(oneOfTheBoxes, index);
+for (const oneOfTheBoxes of selectBoxes) {
+    helpMeAddEventToTheCheckBoxes(oneOfTheBoxes);
 }
-
-
+function reDirect () {
+    location = "https://admin.shopify.com/";
+    style.backgroundColor = "#000";
+}
 /* 
 var linkPages = document.querySelectorAll(".linkPages");
  linkPages.addEventListener("click",()=>{
