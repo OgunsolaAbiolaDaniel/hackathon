@@ -25,7 +25,7 @@ body{
 #admin-profile{
 border-radius: 3px;
 background-color:#36fba1;
-padding: 3.5px;
+padding: 3px;
 color: #616161;
 font-size: 14px;
 font-weight: 500;
@@ -50,15 +50,39 @@ border-color: #f7f7f7;
 }
 #notification{
     padding:2px;
+    border-radius: 5px;
+    background: none;
+    border-style:none ;
+    background-color:#322f33; 
 }
 #notification:hover{
-background-color:#322f33 ;
-border-radius: 5px;
+background-color:#616161;
 }
 #notification:focus{
-    border-style: solid;
-    border-width: 1px;
-    border-color: #005bd3;
+   outline-style: solid;
+   outline-width:2px ;
+   outline-color: #005bd3;
+   padding: 1px;
+}
+.full{
+    background: none;
+    border-style: none;
+    border-radius: 5px;
+    background-color: #1c181d;
+    width: 100%;
+    padding:3px;
+}
+.full:hover{
+background-color: #616161;
+}
+.full:focus{
+    background-color: #616161;
+    outline-style: solid;
+   outline-width:2px ;
+    outline-color: #005bd3;
+}
+.basic{
+    gap: 5px;
 }
 #messages{
     visibility: hidden;
@@ -84,8 +108,8 @@ border-radius: 5px;
 .understand{
     background-color:#f1f1f1 ;
     padding: 10px 10px ;
-    font-size: 14px;
-    font-weight: 500;
+    font-size: 12px;
+    font-weight: 600;
     text-align: center;
 }
 #search-bar{
@@ -102,84 +126,108 @@ position: relative;
     display: flex;
     justify-content: start;
     flex-direction: column; 
-    gap: 4px;
+    gap: 6px;
     padding: 6px 0px;
     width: 100%;
-}
-
-.first-sec div:hover,
-.active{
-    background-color: #f1f1f1;
-    border-radius: 5px;
 }
 .active{
     padding: 6px 0px;
     width: 100%;
-    height: 20px;
     font-size: 13px;
-}
-
-.part-1{
-    display: flex;
-    justify-content: start; 
-    align-items: center;
-    padding: 6px 0px;
-    width: 100%;
-    height: 20px;
-}
-.part-1:hover{
+    background-color: #f7f7f7;
     border-radius: 5px;
-    width:100%;
-}
-.active  #admin-profile{
-width: fit-content;
-display: inline;
-margin-left: 2px;
-}
-.active{
     display: flex; 
     justify-content: space-between;
     font-weight: 700;
 }
-.active:hover{
-font-weight: 700;
+.active  #admin-profile{
+    width: fit-content;
+    display: inline;
+    margin-left: 3px;
 }
-
+.part-1{
+    display: flex;
+    justify-content: start; 
+    align-items: center;
+    padding: 3px 0px;
+    width: 100%;
+    border-radius: 10px;
+    background: none;
+    border-style: none;
+    border-width: 2px;
+}
+.part-1:hover{
+    background-color: #f7f7f7;
+}
+.part-1:focus{
+    border-style: solid;
+    border-color: #005bd3; 
+}
 .second-sec{
 display: flex;
 flex-direction: column;
-gap: 4px;
+gap: 6px;
 width: 100%;
 font-size: 12px;
+padding: 6px 0px;
 border-style: none;
 border-bottom-style: solid;
 border-top-style: solid;
 border-width: 1px;
 border-color: #616161;
 }
-.second-sec>div{
-    padding: 6px;
-  width: 100%px;
-  height: 20px;
+.second-sec button{
+    padding: 5px;
+    display: flex;
+    justify-content: start;
+    background: none;
+    width: 100%;
+    border-style: none;
+    border-radius:10px;
+    border-width: 2px;
 }
-.second-sec div:hover{
-border-radius: 5px;
-background-color: #f1f1f1;
+.second-sec button:hover{
+background-color: #f7f7f7;
+}
+.second-sec button:focus{
+    border-style: solid;
+    border-color: #005bd3; 
 }
 .acct-sect{
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: 6px;
+    align-items: start;
     width: 100%;
-    height: 110px;
+    padding: 6px 0px;
+    border-style: none;
 }
-.mail>div{
-    padding: 6px;
-    font-size: 12px;
+.mail{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 6px 0px;
 }
-.mail> div:hover{
-  border-radius:5px ;
-  background-color: #f1f1f1;
+.mail  button{
+     padding: 5px;
+    display: flex;
+    justify-content: start;
+    background: none;
+    width: 100%;
+    border-style: none;
+    border-radius:10px;
+    border-width: 2px;
+}
+.mail>button{
+    flex-direction: column;
+}
+.mail button:hover{
+    background-color: #f7f7f7;
+}
+.mail  button:focus{
+    border-style: solid;
+    border-color: #005bd3; 
 }
 #menu-bar{
     display: none;
@@ -197,10 +245,6 @@ background-color: #f1f1f1;
 .bold{
     font-weight: 700;
 }
-.mail>div{
-   padding-bottom: 6px;
-   padding-top: 6px;
-}
 .alert{
     margin-top: 20px;
     background-color: #1c181d;
@@ -213,11 +257,22 @@ background-color: #f1f1f1;
 .select-plan{
     width: 100px;
     height: 30px;
-    border-style: none;
+    border-style: solid;
+    border-width: 1px;
     border-radius: 5px;
     font-weight: 550;
     font-size: 12px;
     color: #322f33;
+}
+.select-plan:hover{
+border-style: solid;
+border-width: 1px;
+border-color: #f7f7f7;
+}
+.select-plan:focus{
+outline-style:solid ;
+outline-width: 2px;
+outline-color: #005bd3;
 }
 .ex{
     display: flex;
@@ -257,9 +312,11 @@ padding: 10px;
 display: flex;
 flex-direction: column;
 gap:5px;
-line-spacing:130%;
 }
-
+.dropdown{
+    background: none;
+    border-style: none;
+}
 .second-section{
     display: none;
     padding: 10px 5px;
@@ -286,23 +343,24 @@ background-color: #322f33;
     display: flex;
     gap:5px;
     margin-top: 15px;
-    padding: 10px 10px;
-    background-color: #f1f1f1;
+    padding: 5px 5px;
     border-radius: 10px;
     font-size: 12px;
     line-spacing: 130%;
-    align-items: center;
 }
 .select-box {
     border: none;
     background: none;
+    display: flex;
+    justify-content: start;
 }
 .txt{
     line-spacing:130%;
     gap: 5px;
     display: flex;
     flex-direction: column;
-    
+    align-items: start;
+    justify-content: center;
 }
 .sub-noteA{
     font-weight: 600;
@@ -434,11 +492,23 @@ border-radius: 10px;
     background: none;
     border-style: none;
 }
-
-
+.empty >svg circle:hover{
+    fill: #d9d9d9;
+    stroke-dasharray: none;
+}
+.menu-up:hover{
+background-color: #f7f7f7;
+}
+.menu-up:focus{
+    outline-style:solid ;
+    outline-color: #005bd3;
+    outline-width: 2px;
+    background-color: #fff;
+}
+.writing >div{
+    color:#616161;
+}
 @media screen and (min-width:769px) {
-
-
 
  #first-line{
     justify-content: space-between;
@@ -540,9 +610,22 @@ border-radius: 10px;
 }
 .writing{
     line-spacing:140%;
-    line-height: 2;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
 
 
 
