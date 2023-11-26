@@ -576,13 +576,15 @@ background-color: #f7f7f7;
     border-radius: 10px; 
 }
 .items{
+    width: 70%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding: 0 15%;
 }
 .items>div{
-    width:100%;
+    
 }
 .ex{
     display: flex;

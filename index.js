@@ -147,7 +147,6 @@ function updateProgressBarAndCount(numberOfCheckedBoxParams) {
     percentageDiv.style.width = `${percentage}%`;
 
 }
-
 function helpMeAddEventToTheCheckBoxes(thebox) {
     thebox.addEventListener('click', (e) => {
         const emptyCheck = thebox.querySelector('.empty');
@@ -199,3 +198,7 @@ var linkPages = document.querySelectorAll(".linkPages");
     linkPages.style.backgroundColor = "#322f33";
     window.location= "https://admin.shopify.com/";
 }) */
+let fieldSet = document.querySelector(".field");
+fieldSet.addEventListener("click",()=>{
+console.log("i am happy");
+})
