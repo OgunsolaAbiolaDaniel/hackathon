@@ -202,4 +202,3 @@ var linkPages = document.querySelectorAll(".linkPages");
     linkPages.style.backgroundColor = "#322f33";
     window.location= "https://admin.shopify.com/";
 }) */
-
