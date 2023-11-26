@@ -35,6 +35,7 @@ dismiss.addEventListener("click",()=>{
     const alertMessage = document.querySelector(".alert");
     alertMessage.style.display = "none";
 })
+
 const setup = document.querySelector(".dropdown");
 setup.addEventListener("click",()=>{
     const drop= document.querySelector(".minimize");
@@ -49,81 +50,7 @@ setup.addEventListener("click",()=>{
         </svg>`
     }
 })
-const contents = document.querySelector(".sub-noteA");
-const suspend = document.querySelector(".words")
-contents.addEventListener("click",()=>{
-   if(suspend.style.display ==="none"){
-        suspend.style.display ="block";
-        suspend.style.visibility="visible";
-    }else{suspend.style.display="none"}
-    if( suspendE.style.display==="block"||suspendB.style.display==="block"|| suspendC.style.display==="block" || suspendD.style.display==="block"){
-        suspendE.style.display="none";
-        suspendB.style.display="none";
-        suspendC.style.display="none";
-        suspendD.style.display="none";
-    }
-    else{}
-})
-const contentB = document.querySelector(".sub-noteB");
-const suspendB = document.querySelector(".wordsB")
-contentB.addEventListener("click", ()=>{
-    if(suspendB.style.display ==="none"){
-        suspendB.style.display ="block";
-        suspendB.style.visibility="visible";
-     }else{suspendB.style.display="none"}
-     if( suspend.style.display==="block"||suspendE.style.display==="block"|| suspendC.style.display==="block" || suspendD.style.display==="block"){
-        suspend.style.display="none";
-        suspendE.style.display="none";
-        suspendC.style.display="none";
-        suspendD.style.display="none";
-     }
-      else{}
-})
-const contentC = document.querySelector(".sub-noteC");
-const suspendC = document.querySelector(".wordsC")
-contentC.addEventListener("click", ()=>{
-    if(suspendC.style.display ==="none"){
-        suspendC.style.display ="block";
-        suspendC.style.visibility="visible";
-     }else{suspendC.style.display="none"}
-     if( suspend.style.display==="block"||suspendB.style.display==="block"|| suspendE.style.display==="block" || suspendD.style.display==="block"){
-        suspend.style.display="none";
-        suspendB.style.display="none";
-        suspendE.style.display="none";
-        suspendD.style.display="none";
-      }
-      else{}
-})
-const contentD = document.querySelector(".sub-noteD");
-const suspendD = document.querySelector(".wordsD")
-contentD.addEventListener("click", ()=>{
-    if(suspendD.style.display ==="none"){
-        suspendD.style.display ="block";
-        suspendD.style.visibility="visible";
-     }else{suspendD.style.display="none"}
-     if( suspend.style.display==="block"||suspendB.style.display==="block"|| suspendC.style.display==="block" || suspendE.style.display==="block"){
-        suspend.style.display="none";
-        suspendB.style.display="none";
-        suspendC.style.display="none";
-        suspendE.style.display="none";
-      }
-      else{}
-})
-const contentE = document.querySelector(".sub-noteE");
-const suspendE = document.querySelector(".wordsE")
-contentE.addEventListener("click", ()=>{
-    if(suspendE.style.display ==="none"){
-        suspendE.style.display ="block";
-        suspendE.style.visibility="visible";
-     }else{suspendE.style.display="none"}
-     if( suspend.style.display==="block"||suspendB.style.display==="block"|| suspendC.style.display==="block" || suspendD.style.display==="block"){
-       suspend.style.display="none";
-       suspendB.style.display="none";
-       suspendC.style.display="none";
-       suspendD.style.display="none";
-     }
-     else{}
-})
+
 const checkBox = document.querySelector(".empty");
     const loadingAnimate = document.querySelector(".mins");
     const loaded = document.querySelector(".after")
@@ -134,7 +61,27 @@ const checkBox = document.querySelector(".empty");
         }
         else{}
     })
+
+
+
+function reDirect () {
+    location = "https://admin.shopify.com/";
+    style.backgroundColor = "#000";
+}
+let pricing = document.querySelector(".select-plan");
+pricing.addEventListener('click', () => {
+    location= "https://www.shopify.com/pricing"
+})
+
+
+
+
+
+
+
 let numberOfCheckedBox = 0;
+let activeSubSectionIndex = 0;
+const crdDivs = document.querySelectorAll('.crd');
 const selectBoxes = document.querySelectorAll('.select-box');
 const progressCount = document.querySelector('#progress-count');
 const percentageDiv = document.querySelector('.percentage');
@@ -144,8 +91,8 @@ function updateProgressBarAndCount(numberOfCheckedBoxParams) {
     const percentage = (numberOfCheckedBoxParams / selectBoxes.length) * 100;
     percentageDiv.style.width = `${percentage}%`;
 }
-function helpMeAddEventToTheCheckBoxes(thebox) {
-    thebox.addEventListener('click', (e) => {
+function eventHelpForCheckBox(thebox) {
+     thebox.addEventListener('click', () => {
         const emptyCheck = thebox.querySelector('.empty');
         const loading = thebox.querySelector('.loading');
         const loaded = thebox.querySelector('.loaded');
@@ -178,27 +125,57 @@ function helpMeAddEventToTheCheckBoxes(thebox) {
             }, 150);
             thebox.classList.add('select-box-active');
             numberOfCheckedBox = ++numberOfCheckedBox;
+            openUnChecked();
         }
         // do update
         updateProgressBarAndCount(numberOfCheckedBox)
     });
 }
-for (const oneOfTheBoxes of selectBoxes) {
-    helpMeAddEventToTheCheckBoxes(oneOfTheBoxes);
+function toggleSubSection(theSubNote, theSubSectionDiv, idxOfCrdDiv) {
+    theSubNote.addEventListener('click', () => {
+        console.log('activeSubSectionIndex:::', activeSubSectionIndex)
+        if (!theSubSectionDiv.classList.contains('subsection-is-open')) {
+            doHelpMeClosedAlreadyOpenSubsection(theSubSectionDiv, idxOfCrdDiv)
+        } else {
+            theSubSectionDiv.classList.remove('subsection-is-open')
+            activeSubSectionIndex = -1
+        }
+    });
 }
-function reDirect () {
-    location = "https://admin.shopify.com/";
-    style.backgroundColor = "#000";
+function helpMeAddEventToTheCheckBoxes(singleCrdDiv, indexOfCrdDiv) {
+    const getCheckBox = singleCrdDiv.querySelector('.select-box');
+    const getSubNote = singleCrdDiv.querySelector('.sub-note');
+    const getSubSection = singleCrdDiv.querySelector('.subsection');
+    eventHelpForCheckBox(getCheckBox);
+    toggleSubSection(getSubNote, getSubSection, indexOfCrdDiv);
 }
-let pricing = document.querySelector(".select-plan");
-pricing.addEventListener('click', () => {
-    location= "https://www.shopify.com/pricing"
-})
 
+function doHelpMeClosedAlreadyOpenSubsection(theSubSectionDiv, idxOfCrdDiv) {
+   theSubSectionDiv.classList.add('subsection-is-open');
+    // check if any is open already and close it
+    if (activeSubSectionIndex > - 1) {
+        crdDivs[activeSubSectionIndex].querySelector('.subsection')
+            .classList.remove('subsection-is-open')
+        
+    }
+    activeSubSectionIndex = idxOfCrdDiv;
+}
 
-/* 
-var linkPages = document.querySelectorAll(".linkPages");
- linkPages.addEventListener("click",()=>{
-    linkPages.style.backgroundColor = "#322f33";
-    window.location= "https://admin.shopify.com/";
-}) */
+function openUnChecked() {
+    for (let index = 0; index < crdDivs.length; index++) {
+        const crdDiv = crdDivs[index]; 
+        const getCheckBox = crdDiv.querySelector('.select-box');
+        if (!getCheckBox.classList.contains('select-box-active')) {
+            const getSubSection = crdDiv.querySelector('.subsection');
+            doHelpMeClosedAlreadyOpenSubsection(getSubSection, index)
+            break;
+        }
+    }
+}
+
+for (let index = 0; index < crdDivs.length; index++) {
+    const crdDiv = crdDivs[index]; 
+    helpMeAddEventToTheCheckBoxes(crdDiv, index);
+}
+crdDivs[activeSubSectionIndex].querySelector('.subsection')
+                    .classList.add('subsection-is-open')

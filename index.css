@@ -404,20 +404,12 @@ a{
     width: 100%;
     line-spacing:140%;
 }
+.subsection-is-open {
+    display: block;
+}
 .subsection>div{
     line-spacing:130%;
 }
-/*.btm{
-    border-style: none;
-    border-color: #322f33;
-    border-style:solid ;
-    border-width: 2px;
-    border-bottom-style: none;
-    border-radius: 10px;
-    background-color: #fff;
-    width: fit-content;
-    margin-top: 8px;
-}*/
 .subsection div button{
 background-color: #1c181d;
 margin-top: 8px;
