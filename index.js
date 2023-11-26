@@ -76,7 +76,7 @@ contentB.addEventListener("click", ()=>{
         suspendE.style.display="none";
         suspendC.style.display="none";
         suspendD.style.display="none";
-      }
+     }
       else{}
 })
 const contentC = document.querySelector(".sub-noteC");
@@ -124,7 +124,6 @@ contentE.addEventListener("click", ()=>{
      }
      else{}
 })
-
 const checkBox = document.querySelector(".empty");
     const loadingAnimate = document.querySelector(".mins");
     const loaded = document.querySelector(".after")
@@ -135,7 +134,6 @@ const checkBox = document.querySelector(".empty");
         }
         else{}
     })
-
 let numberOfCheckedBox = 0;
 const selectBoxes = document.querySelectorAll('.select-box');
 const progressCount = document.querySelector('#progress-count');
@@ -145,9 +143,7 @@ function updateProgressBarAndCount(numberOfCheckedBoxParams) {
     progressCount.innerHTML = numberOfCheckedBoxParams;
     const percentage = (numberOfCheckedBoxParams / selectBoxes.length) * 100;
     percentageDiv.style.width = `${percentage}%`;
-
 }
-
 function helpMeAddEventToTheCheckBoxes(thebox) {
     thebox.addEventListener('click', (e) => {
         const emptyCheck = thebox.querySelector('.empty');
@@ -155,10 +151,13 @@ function helpMeAddEventToTheCheckBoxes(thebox) {
         const loaded = thebox.querySelector('.loaded');
 
         if (thebox.classList.contains('select-box-active')) {
-            emptyCheck.style.display = 'block';
-            loading.style.display = 'none';
+            loading.style.display = 'block';
             loaded.style.display = 'none';
             thebox.classList.remove('select-box-active');
+            setTimeout(() => {
+                loading.style.display = 'none';
+                emptyCheck.style.display = 'block';
+            }, 150);
             numberOfCheckedBox = --numberOfCheckedBox;
         } else {
             emptyCheck.style.display = 'none';
@@ -180,12 +179,10 @@ function helpMeAddEventToTheCheckBoxes(thebox) {
             thebox.classList.add('select-box-active');
             numberOfCheckedBox = ++numberOfCheckedBox;
         }
-
         // do update
         updateProgressBarAndCount(numberOfCheckedBox)
     });
 }
-
 for (const oneOfTheBoxes of selectBoxes) {
     helpMeAddEventToTheCheckBoxes(oneOfTheBoxes);
 }
@@ -193,9 +190,16 @@ function reDirect () {
     location = "https://admin.shopify.com/";
     style.backgroundColor = "#000";
 }
+let pricing = document.querySelector(".select-plan");
+pricing.addEventListener('click', () => {
+    location= "https://www.shopify.com/pricing"
+})
+
+
 /* 
 var linkPages = document.querySelectorAll(".linkPages");
  linkPages.addEventListener("click",()=>{
     linkPages.style.backgroundColor = "#322f33";
     window.location= "https://admin.shopify.com/";
 }) */
+
