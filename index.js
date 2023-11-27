@@ -1,12 +1,12 @@
 const searchbar = document.querySelector("#search");
 searchbar.addEventListener("click",()=>{
     searchbar.style.borderWidth = "2px";
-    searchbar.style.borderColor = "#f0f0f0"
+    searchbar.style.borderColor = "#fff"
 });
 const notifications = document.querySelector("#notification");
 const disPlan= document.querySelector(".a-sector");
 notifications.addEventListener("click",()=>{
-   notifications.style.backgroundColor = "#616161"
+   notifications.style.backgroundColor = "#656266"
    const disPlan= document.querySelector(".a-sector")
    if(disPlan.style.display ==="none"){
         disPlan.style.display ="block";
@@ -17,9 +17,13 @@ notifications.addEventListener("click",()=>{
     }
     else{}
 })
+
+
+
 const menu = document.querySelector(".full");
 const perpend= document.querySelector(".b-sector")
 menu.addEventListener("click",()=>{
+    menu.style.backgroundColor ="#656266"
    if(perpend.style.display ==="none"){
         perpend.style.display ="block";
         perpend.style.visibility="visible";
@@ -65,8 +69,8 @@ const checkBox = document.querySelector(".empty");
 
 
 function reDirect () {
-    location = "https://admin.shopify.com/";
-    style.backgroundColor = "#000";
+  /*  location = "https://admin.shopify.com/";*/
+    lement.style.backgroundColor = "#000";
 }
 let pricing = document.querySelector(".select-plan");
 pricing.addEventListener('click', () => {
